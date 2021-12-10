@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - 3D Secure v2.0 with Drop-in</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h1>3D Secure v2.0 sdk with data only</h1>
+
+<hr>
+
+<form action="javascript:void(0)" class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p class="lead">This is a functional example of performing 3D Secure verification on a credit card tokenized with data only. 
+        For 3DS 2.0, it's highly recomended to supply additional information about the customer to achieve a frictionless flow (no challenge presented).</p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table">
+        <tr><th>Field</th><th>Value</th></tr>
+        <tr><td>Number (successful with no challenge)</td><td>4000000000001000</td></tr>
+        <tr><td>Number (successful with challenge)</td><td>4000000000001091</td></tr>
+                <tr><td>Number (unsuccessful with challenge)</td><td>4000000000001109</td></tr>
+        <tr><td>Expiration Date (for sandbox testing, year must be exactly 3 years in the future)</td><td>12/22</td></tr>
+        <tr><td>CVV</td><td>123</td></tr>
+        <tr><td>Postal Code</td><td>12345</td></tr>
+      </table>
+        <input type="button" id="payBtn" class="btn btn-success" onclick="start();" value="Pay Using Nonce"></button>
+      <br>
+      
+    </div>
+    
+  </div>
+  <label>Enriched token : 
+    <input readonly id="enrich_nonce" style="width: 500px" placeholder="Enriched nonce will be visible here after sucess" type="text"/>
+  </label>
+  
+    
+
+<br>
+<br>
+
+  <script src='https://js.braintreegateway.com/web/3.84.0/js/client.min.js'></script>
+
+  <!-- Load the 3D Secure component. -->
+  <script src='https://js.braintreegateway.com/web/3.84.0/js/three-d-secure.min.js'></script>
+
+  <!-- Load the Hosted Fields component. -->
+  <script src='https://js.braintreegateway.com/web/3.84.0/js/hosted-fields.min.js'></script>
+  <script  src="./script.js"></script>
+
+</body>
+</html>
